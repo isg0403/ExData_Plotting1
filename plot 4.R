@@ -46,10 +46,8 @@ with(df, {
     plot(datetime, Global_active_power, type="l", 
          ylab="Global Active Power", xlab="")
     
-    
     # second plot
     plot(datetime, Voltage, type="l", ylab="Voltage")
-    
     
     # third plot
     plot(datetime, Sub_metering_1, type="n",
@@ -57,16 +55,18 @@ with(df, {
     points(datetime, Sub_metering_1, col="black", type="l")
     points(datetime, Sub_metering_2, col="red", type="l")
     points(datetime, Sub_metering_3, col="blue", type="l")
-    leg <- legend("topright", lty = 1, col = c("black", "red", "blue"),
-                  legend = headers[7:9], cex=0.8,
-                  text.width = strwidth(headers[7]) * 1.2,
-                  plot=TRUE, bty="n")
+    legend("topright", lty = 1, col = c("black", "red", "blue"),
+           legend = headers[7:9], cex=0.8,
+           text.width = strwidth(headers[7]) * 1.2,
+           plot=TRUE, bty="n")
     
     # fourth plot
     plot(datetime, Global_reactive_power, type="l")
     
 })
 
+
+#=== Step 3 - save pgn file
 
 dev.copy(png,'plot4.png', width=480, height=480)
 dev.off()
